@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -9,10 +8,7 @@ int binToDec(const char* binStr);
 int* assemble(const char* code);
 
 int main() {
-    const char* code = "inc 3\n"
-                       "add 1 2\n"
-                       "lda 4\n"
-                       "hlt";
+    const char* code = "inc 0\nadd 1 2\njmp 14";
     
     int* machineCode = assemble(code);
     
@@ -79,7 +75,7 @@ int* assemble(const char* code) {
         strcat(newLine, decToBin(mnemonic, 4));
 
         if (numOperand == 0) {
-            strcat(newLine, decToBin(atoi(tokens[1]), 4));
+            strcat(newLine, "0000");
         } else if (numOperand == 1) {
             strcat(newLine, decToBin(atoi(tokens[1]), 2));
             strcat(newLine, "00");
@@ -98,3 +94,4 @@ int* assemble(const char* code) {
     free(lines);
     return newCode;
 }
+
