@@ -1,4 +1,4 @@
-(name: CI
+name: CI
 on: [push]
 jobs:
   build:
@@ -6,4 +6,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a one-line script
-      run: echo Workflow succeeded!)
+      run: echo Workflow succeeded!
